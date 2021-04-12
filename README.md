@@ -78,4 +78,4 @@ Compile and upload ESP32 sketch.
 Install Mosquitto clients for listening communications and topics.
 ```sudo apt  install mosquitto-clients```
 start the client to listen port 1883 and the topic LivingRoom/Temperature
-```mosquitto_sub -h "server_local_adress" -p 1883 -t "LivingRoom/Temperature"```
+```mosquitto_sub -h "localhost" -p 1883 -t "LivingRoom/Temperature"```
