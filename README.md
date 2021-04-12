@@ -30,8 +30,11 @@ const char ESP_CA_cert[]
 const char ESP_RSA_key[]
 ```
 These arrays contains the certificates needed for a secured connection to your Mosquitto server.
-
-Or alternatively you can use these commands (modify them if you need) for generating the certificates:
+  
+  
+  
+  
+##### Alternatively you can use these commands (modify them if you need) for generating the certificates:
 ```
 openssl req -new -x509 -days 365 -extensions v3_ca -keyout ca.key -out ca.crt -subj '/CN=TrustedCA.net'  
 #If you generate self-signed certificates the CN can be anything
@@ -46,7 +49,7 @@ openssl genrsa -out esp.key 2048
 openssl req -out esp.csr -key esp.key -new -subj '/CN=localhost'
 openssl x509 -req -in esp.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out esp.crt -days 365
 ```
-In this case you need to open ca.crt, esp.crt and esp.key, copy them to source code and add escape characters. 
+>> In this case you need to open ca.crt, esp.crt and esp.key, copy them to ESP32_MQTT_example-with-TLS.ino source code and add escape characters. 
 
 ### 2. step - Install and setup Mosquitto broker
 ```sudo apt-get install mosquitto```
@@ -79,7 +82,7 @@ stop and start a mosquitto broker with this config file:
 sudo service mosquitto stop
 mosquitto -c /etc/mosquitto/conf.d/default.conf
 ```
-Dont forget to forward on you router incoming connections on port 8883 to your Mosquitto broker!
+> Dont forget to forward on you router incoming connections on port 8883 to your Mosquitto broker!
 
 ### 3. step - Compile the program and start Mosquitto listeners
 Compile and upload ESP32 sketch.
