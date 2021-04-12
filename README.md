@@ -12,7 +12,7 @@ For the following guide I used Ubuntu system, but its possible to run on any oth
 
 ## Guide
 ### 0. step - Download the this library
- >```git clone https://github.com/norbertg1/ESP32_MQTT_example-with-TLS.git```
+```git clone https://github.com/norbertg1/ESP32_MQTT_example-with-TLS.git```
 
 ### 1. step - Generate the certificates:
 Open the *certificates/certificate_generator.sh* script and **modify** the **Mosquitto_borker_adress** to your server adress!\
@@ -58,7 +58,8 @@ sudo cp certificates/mosquitto.crt /etc/mosquitto/certs/
 sudo cp certificates/mosquitto.key /etc/mosquitto/certs/
 ```
 Edit the config file:\
-```sudo nano /etc/mosquitto/conf.d/default.conf```\
+```sudo nano /etc/mosquitto/conf.d/default.conf```  
+
 add to it the following lines:
 ```
 #listen to localhost without needing of certificate
@@ -82,7 +83,7 @@ Dont forget to forward on you router incoming connections on port 8883 to your M
 ### 3. step - Compile the program and start Mosquitto listeners
 Compile and upload ESP32 sketch.
 
-Install Mosquitto clients for listening communications and topics.\
-```sudo apt  install mosquitto-clients```\
-start the client to listen port 1883 and the topic LivingRoom/Temperature\
+Install Mosquitto clients for listening communications and topics.  
+```sudo apt  install mosquitto-clients```  
+start the listener to listen port 1883 and the topic LivingRoom/Temperature  
 ```mosquitto_sub -h "localhost" -p 1883 -t "LivingRoom/Temperature"```
