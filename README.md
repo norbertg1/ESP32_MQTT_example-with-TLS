@@ -75,7 +75,7 @@ Dont forget forward on you router incoming connections on 8883 port to your Mosq
 ### 3. step - Compile the program and start Mosquitto listeners
 Compile and upload ESP32 sketch.
 
-Install Mosquitto clients for listening communications and topics.
-```sudo apt  install mosquitto-clients```
-start the client to listen port 1883 and the topic LivingRoom/Temperature
+Install Mosquitto clients for listening communications and topics.\
+```sudo apt  install mosquitto-clients```\
+start the client to listen port 1883 and the topic LivingRoom/Temperature\
 ```mosquitto_sub -h "localhost" -p 1883 -t "LivingRoom/Temperature"```
