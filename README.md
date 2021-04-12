@@ -11,22 +11,26 @@ For the following guide I used Ubuntu system, but its possible to run on any oth
  5. Mosquitto broker - https://mosquitto.org/
 
 ## Guide
-```git clone https://github.com/norbertg1/ESP32_MQTT_example-with-TLS.git```
+### 0. step - Download the this library
+ >```git clone https://github.com/norbertg1/ESP32_MQTT_example-with-TLS.git```
 
 ### 1. step - Generate the certificates:
-Open the *certificates/certificate_generator.sh* script and **modify the Mosquitto_borker_adress to your server adress!**\
+Open the *certificates/certificate_generator.sh* script and **modify** the **Mosquitto_borker_adress** to your server adress!\
+\
 Run the script:\
 ```./certificates/certificates_generator.sh```\
 If you need add execute permission to it:\
 ```chmod -c +x certificate_generator.sh```
 
 The script generates the esp_certificates.h file with arrays:\
-const char CA_cert[],\
-const char ESP_CA_cert[]\
-const char ESP_RSA_key[] \
+```
+const char CA_cert[]
+const char ESP_CA_cert[]
+const char ESP_RSA_key[]
+```
 These arrays contains the certificates needed for a secured connection to your Mosquitto server.
 
-Or alternatevly you can use these commands (modify them if you need) for generating the certificates:
+Or alternatively you can use these commands (modify them if you need) for generating the certificates:
 ```
 openssl req -new -x509 -days 365 -extensions v3_ca -keyout ca.key -out ca.crt -subj '/CN=TrustedCA.net'  
 #If you generate self-signed certificates the CN can be anything
