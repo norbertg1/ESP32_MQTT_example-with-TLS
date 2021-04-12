@@ -11,18 +11,19 @@ For the following guide I used Ubuntu system, but its possible to run on any oth
  5. Mosquitto broker - https://mosquitto.org/
 
 ## Guide
-### 0. step - Download the this library
+### 0. step - Download this library
 ```git clone https://github.com/norbertg1/ESP32_MQTT_example-with-TLS.git```
 
 ### 1. step - Generate the certificates:
 Open the *certificates/certificate_generator.sh* script and **modify** the **Mosquitto_borker_adress** to your server adress!\
 \
 Run the script:\
-```./certificates/certificates_generator.sh```\
+```./certificates/certificates_generator.sh```  
+
 If you need add execute permission to it:\
 ```chmod -c +x certificate_generator.sh```
 
-The script generates the esp_certificates.h file with arrays:\
+The script generates the esp_certificates.h file with arrays:
 ```
 const char CA_cert[]
 const char ESP_CA_cert[]
