@@ -49,7 +49,7 @@ openssl genrsa -out esp.key 2048
 openssl req -out esp.csr -key esp.key -new -subj '/CN=localhost'
 openssl x509 -req -in esp.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out esp.crt -days 365
 ```
->> In this case you need to open ca.crt, esp.crt and esp.key, copy them to ESP32_MQTT_example-with-TLS.ino source code and add escape characters. 
+> In this case you need to open ca.crt, esp.crt and esp.key, copy them to ESP32_MQTT_example-with-TLS.ino source code and add escape characters. 
 
 ### 2. step - Install and setup Mosquitto broker
 ```sudo apt-get install mosquitto```
