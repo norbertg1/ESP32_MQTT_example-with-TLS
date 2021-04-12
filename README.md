@@ -1,28 +1,30 @@
 # ESP32 MQTT example
 TLS Secured connection example between Mosquitto broker (MQTT) and ESP32 board with possible client authentication.\
-For the following guide I used Ubuntu system, but its possible to run on any other system.
+For the following guide I used Ubuntu system, but its possible to run on any other systems.
 
 ### Prerequisite:
  1. Installed Arduino IDE with ESP32 framework\
-    or Visual Studio Code with PlatfoemIO with ESP32 support\
+    or Visual Studio Code with PlatfoemIO with ESP32 framework\
     https://github.com/espressif/arduino-esp32
  3. PubSubClient library for Arduino - https://github.com/knolleary/pubsubclient/
  4. OpenSSL - https://www.openssl.org/
  5. Mosquitto broker - https://mosquitto.org/
 
 ## Guide
-
 ```git clone https://github.com/norbertg1/ESP32_MQTT_example-with-TLS.git```
 
 ### 1. step - Generate the certificates:
-Open the *certificates/certificate_generator.sh* script **modify the Mosquitto_borker_adress to your server adress!**\
+Open the *certificates/certificate_generator.sh* script and **modify the Mosquitto_borker_adress to your server adress!**\
 Run the script:\
 ```./certificates/certificates_generator.sh```\
 If you need add execute permission to it:\
 ```chmod -c +x certificate_generator.sh```
 
-The script generates esp_certificates.h file with const char CA_cert[], const char ESP_CA_cert[] and const char ESP_RSA_key[] \
-These arrays contains the certificates needed for connection to your Mosquitto server.
+The script generates esp_certificates.h file with arrays:\
+const char CA_cert[],\
+const char ESP_CA_cert[]\
+const char ESP_RSA_key[] \
+These arrays contains the certificates needed for a secured connection to your Mosquitto server.
 
 Or alternatevly you can use these commands (Modify them if you need):
 ```
@@ -70,7 +72,7 @@ stop and start a mosquitto broker with this config file:
 sudo service mosquitto stop
 mosquitto -c /etc/mosquitto/conf.d/default.conf
 ```
-Dont forget forward on you router incoming connections on 8883 port to your Mosquitto broker!
+Dont forget to forward on you router incoming connections on port 8883 to your Mosquitto broker!
 
 ### 3. step - Compile the program and start Mosquitto listeners
 Compile and upload ESP32 sketch.
