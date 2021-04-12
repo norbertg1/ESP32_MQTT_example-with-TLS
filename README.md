@@ -21,7 +21,8 @@ Run the script:\
 If you need add execute permission to it:\
 ```chmod -c +x certificate_generator.sh```
 
-The script generates esp_certificates.h file with const char CA_cert[], const char ESP_CA_cert[] and const char ESP_RSA_key[] These arrays contains the certificates needed for connection to your Mosquitto server.
+The script generates esp_certificates.h file with const char CA_cert[], const char ESP_CA_cert[] and const char ESP_RSA_key[] \
+These arrays contains the certificates needed for connection to your Mosquitto server.
 
 Or alternatevly you can use these commands (Modify them if you need):
 ```
